@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import { useRouter } from 'next/router';
+import DefaultErrorPage from 'next/error'
+import Head from 'next/head'
 
 interface IProduct {
   id: string;
@@ -16,6 +18,17 @@ export default function Category({ products }: ICategoryProps) {
 
   if (router.isFallback) {
     return <p>Carregando...</p>
+  }
+
+  if (products.length === 0) {
+    return (
+      <>
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <DefaultErrorPage statusCode={404} />
+      </>
+    )
   }
 
   return (
