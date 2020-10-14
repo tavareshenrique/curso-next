@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+
 import { Title } from '../styles/pages/Home';
 
 interface IProduct {
@@ -17,6 +18,12 @@ export default function Home() {
     })
   }, [])
 
+  async function handleSum() {
+    const math = (await import('../lib/math')).default;
+
+    alert(math.sum(3, 5));
+  }
+
   return (
     <div>
       <section>
@@ -32,6 +39,8 @@ export default function Home() {
           })}
         </ul>
       </section>
+
+      <button type="button" onClick={handleSum}>Sum!</button>
     </div>
   )
 }
