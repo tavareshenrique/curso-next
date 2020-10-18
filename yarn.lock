@@ -1094,6 +1094,16 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@prismicio/helpers@^1.0.4":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-1.0.5.tgz#2be60a1b44e6c33d7918fa74fe67648dc8af0c15"
+  integrity sha512-TPpuAFHNxlCTrEihHnRKcq6zc0oZV0sfz5/iHoSpl5vorwPbwZWiF88JGeflNdefW4A69b5A3x3mfptKPdpoxg==
+
+"@prismicio/richtext@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-1.1.0.tgz#c8769c3d953ae42854a2aba951e3b2121682b8c7"
+  integrity sha512-925JuFiZiIkwu9jmlR9O/U8xCSZk/Y6BQDXKpavoVsKo+n90ml1hGdtWkglIupX+ITQO1ZINyDgUgiY1oG9dsA==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -1123,6 +1133,11 @@
   version "14.11.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.11.8.tgz#fe2012f2355e4ce08bca44aeb3abbb21cf88d33f"
   integrity sha512-KPcKqKm5UKDkaYPTuXSx8wEP7vE9GnuaXIZKijwRYcePpZFDVuy2a57LarFKiORbHOuTOOwYzxVxcUzsh2P2Pw==
+
+"@types/prismic-dom@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@types/prismic-dom/-/prismic-dom-2.1.1.tgz#964f4699a3068721627674d12a0689e457e9065c"
+  integrity sha512-gZSFBARo4vFnpclOq2DzU9t4wikVsZ0+lL4hXaRoeUJinhGSK+nMERcZJgXglK/+QRcw3HBPbGJzgzTqQGSuNw==
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -3250,7 +3265,7 @@ cross-fetch@3.0.5:
   dependencies:
     node-fetch "2.6.0"
 
-cross-fetch@3.0.6:
+cross-fetch@3.0.6, cross-fetch@^3.0.5:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.6.tgz#3a4040bc8941e653e0e9cf17f29ebcd177d3365c"
   integrity sha512-KBPUbqgFjzWlVcURG+Svp9TlhA5uliYtiNx/0r8nv0pdypeQCRJ9IaSIc3q/x3q8t3F75cHuwxVql1HFGHCNJQ==
@@ -3902,7 +3917,7 @@ escape-goat@^2.0.0:
   resolved "https://registry.yarnpkg.com/escape-goat/-/escape-goat-2.1.1.tgz#1b2dc77003676c457ec760b2dc68edb648188675"
   integrity sha512-8/uIhbG12Csjy2JEW7D9pHbreaVaS/OpN3ycnyvElTdwM5n6GY6W6e2IPemfvGZeUMqZ9A/3GqIZMgKnBhAw/Q==
 
-escape-html@~1.0.3:
+escape-html@1.0.3, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
@@ -7239,6 +7254,22 @@ pretty-time@^0.2.0:
   dependencies:
     is-number "^2.0.2"
     nanoseconds "^0.1.0"
+
+prismic-dom@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/prismic-dom/-/prismic-dom-2.2.4.tgz#8bcf7775127b2d30b52ee191fcfc898230517bd4"
+  integrity sha512-NLOfOSp7XVpdhWBd92RSiOZ75QISsSTQPTQN1AqcILtg1/zumqpwYKvz41tl+FeWJYfKPTHanvukhWkanfTngA==
+  dependencies:
+    "@prismicio/helpers" "^1.0.4"
+    "@prismicio/richtext" "^1.1.0"
+    escape-html "1.0.3"
+
+prismic-javascript@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/prismic-javascript/-/prismic-javascript-3.0.2.tgz#a6dcc98014a2bbcc6232954d9295b56cde453390"
+  integrity sha512-9RpituEVE/eZAlj+vUVy61z2IQJdL0zRYuy+IHdiUA7/37zoiCE/Z0AbI0zAWyi5UDXizgQ2TuQTLkOm62KGwA==
+  dependencies:
+    cross-fetch "^3.0.5"
 
 process-nextick-args@^2.0.0, process-nextick-args@~2.0.0:
   version "2.0.1"

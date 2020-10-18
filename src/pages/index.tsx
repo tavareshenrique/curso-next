@@ -1,31 +1,19 @@
-import { useState, useEffect } from 'react';
+
+import { GetServerSideProps } from 'next';
+import Link from 'next/link';
+import { client } from '@/lib/primisc';
+import Prismic from 'prismic-javascript';
+import PrimiscDOM from 'prismic-dom';
+import { Document } from 'prismic-javascript/types/documents';
 
 import SEO from '@/components/SEO';
-
 import { Title } from '../styles/pages/Home';
 
-interface IProduct {
-  id: string;
-  title: string;
+interface IHomeProps {
+  recommendedProducts: Document[];
 }
 
-export default function Home() {
-  const [recommendedProducts, setRecommendedProducts] = useState<IProduct[]>([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3333/recommended').then((response) => {
-      response.json().then(data => {
-        setRecommendedProducts(data);
-      })
-    })
-  }, [])
-
-  async function handleSum() {
-    const math = (await import('../lib/math')).default;
-
-    alert(math.sum(3, 5));
-  }
-
+export default function Home({ recommendedProducts }: IHomeProps) {
   return (
     <div>
       <SEO 
@@ -40,15 +28,29 @@ export default function Home() {
         <ul>
           {recommendedProducts.map(recommendedProduct => {
             return (
-              <li key={recommendedProduct.id} >
-                {recommendedProduct.title}
+              <li key={recommendedProduct.id}>
+                <Link href={`/catalog/products/${recommendedProduct.uid}`} >
+                  <a>
+                    {PrimiscDOM.RichText.asText(recommendedProduct.data.title)}
+                  </a>
+                </Link>
               </li>
             )
           })}
         </ul>
       </section>
-
-      <button type="button" onClick={handleSum}>Sum!</button>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
+  const recommendedProducts = await client().query([
+    Prismic.Predicates.at('document.type', 'product')
+  ])
+
+  return {
+    props: {
+      recommendedProducts: recommendedProducts.results,
+    }
+  }
 }
