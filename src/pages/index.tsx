@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import { client } from '@/lib/primisc';
 import Prismic from 'prismic-javascript';
-import PrimiscDOM from 'prismic-dom';
+import PrismicDOM from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 
 import SEO from '@/components/SEO';
@@ -31,7 +31,7 @@ export default function Home({ recommendedProducts }: IHomeProps) {
               <li key={recommendedProduct.id}>
                 <Link href={`/catalog/products/${recommendedProduct.uid}`} >
                   <a>
-                    {PrimiscDOM.RichText.asText(recommendedProduct.data.title)}
+                    {PrismicDOM.RichText.asText(recommendedProduct.data.title)}
                   </a>
                 </Link>
               </li>

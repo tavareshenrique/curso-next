@@ -1,6 +1,6 @@
 import { client } from '@/lib/primisc';
 import { Document } from 'prismic-javascript/types/documents';
-import PrimiscDOM from 'prismic-dom';
+import PrismicDOM from 'prismic-dom';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
@@ -18,9 +18,9 @@ export default function Product({ product }: IProductProps) {
 
   return (
     <div>
-      <h1>{PrimiscDOM.RichText.asText(product.data.title)}</h1>
+      <h1>{PrismicDOM.RichText.asText(product.data.title)}</h1>
 
-      <div dangerouslySetInnerHTML={{ __html: PrimiscDOM.RichText.asHtml(product.data.description) }} />
+      <div dangerouslySetInnerHTML={{ __html: PrismicDOM.RichText.asHtml(product.data.description) }} />
 
       <img src={product.data.thumbnail.url} alt="Imagem camisa front-end" width="300" />
 

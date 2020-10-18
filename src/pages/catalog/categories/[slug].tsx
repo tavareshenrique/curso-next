@@ -1,7 +1,7 @@
 import { client } from '@/lib/primisc';
 import { Document } from 'prismic-javascript/types/documents';
 import Prismic from 'prismic-javascript';
-import PrimiscDOM from 'prismic-dom';
+import PrismicDOM from 'prismic-dom';
 import Link from 'next/link';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -21,7 +21,7 @@ export default function Category({ category, products }: ICategoryProps) {
 
   return (
     <div>
-      <h1>{PrimiscDOM.RichText.asText(category.data.title)}</h1>
+      <h1>{PrismicDOM.RichText.asText(category.data.title)}</h1>
 
       <ul>
         {products.map(product => {
@@ -29,7 +29,7 @@ export default function Category({ category, products }: ICategoryProps) {
             <li key={product.id}>
             <Link href={`/catalog/products/${product.uid}`} >
               <a>
-                {PrimiscDOM.RichText.asText(product.data.title)}
+                {PrismicDOM.RichText.asText(product.data.title)}
               </a>
             </Link>
           </li>
